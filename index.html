@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en, jp">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Robyne</title>
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div id="start-screen">
+
+  
+
+    <button id="start-btn">
+      START
+    </button>
+
+  </div>
+
+
+  <div id="win-screen" class="hidden">
+
+       <img src="illustration-img/rob-1.png" alt=" よろしく !">
+
+  </div>
+
+
+ <div id="popup">
+
+  <div id="popup-overlay"></div>
+
+  <div class="popup-box">
+
+    <p id="popup-text"></p>
+
+    <div id="popup-controls">
+      <button id="play-music-btn" class="hidden">▶ Play</button>
+      <button id="popup-btn">Next</button>
+    </div>
+
+  </div>
+
+</div>
+
+<audio id="plastic-love-audio">
+  <source src="audio/plastic-love.mp4" type="audio/mp4">
+</audio>
+
+    </div>
+
+  </div>
+
+
+  <div id="floating-background"></div>
+
+
+  <section class="memory-game">
+
+    <div class="memory-card" data-framework="running">
+      <img class="front-face" src="card-img/card-02.png" alt="Running" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="running">
+      <img class="front-face" src="card-img/card-02.png" alt="Running" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="hokusai">
+      <img class="front-face" src="card-img/card-03.png" alt="Hokusai" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="hokusai">
+      <img class="front-face" src="card-img/card-03.png" alt="Hokusai" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="sushi">
+      <img class="front-face" src="card-img/card-04.png" alt="Sushi" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="sushi">
+      <img class="front-face" src="card-img/card-04.png" alt="Sushi" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="japanese-snacks">
+      <img class="front-face" src="card-img/card-05.png" alt="Snacks" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="japanese-snacks">
+      <img class="front-face" src="card-img/card-05.png" alt="Snacks" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="plastic-love">
+      <img class="front-face" src="card-img/card-06.png" alt="Plastic Love" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="plastic-love">
+      <img class="front-face" src="card-img/card-06.png" alt="Plastic Love" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="robyne">
+      <img class="front-face" src="card-img/card-07.png" alt="Robyne" />
+      <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+    </div>
+
+    <div class="memory-card" data-framework="robyne">
+  <img class="front-face" src="card-img/card-07.png" alt="Robyne" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+
+<div class="memory-card" data-framework="onihasoto">
+  <img class="front-face" src="card-img/card-08.png" alt="Personal Project" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+<div class="memory-card" data-framework="onihasoto">
+  <img class="front-face" src="card-img/card-08.png" alt="Personal Project" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+
+<div class="memory-card" data-framework="movingout">
+  <img class="front-face" src="card-img/card-09.png" alt="Moving Out" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+<div class="memory-card" data-framework="movingout">
+  <img class="front-face" src="card-img/card-09.png" alt="Moving Out" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+
+<div class="memory-card" data-framework="design">
+  <img class="front-face" src="card-img/card-10.png" alt="Design" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+<div class="memory-card" data-framework="design">
+  <img class="front-face" src="card-img/card-10.png" alt="Design" />
+  <img class="back-face" src="card-img/card-01.png" alt="Card Back" />
+</div>
+
+    </div>
+
+  </section>
+
+</div>
+
+  <div id="gameboy-container" class="hidden">
+
+  <div class="gameboy">
+
+    <div class="gameboy-screen">
+      <video id="gameboy-video" autoplay muted loop playsinline>
+        <source src="video/game-design.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+
+</div>
+
+<div id="culture-video-container" class="hidden">
+<video
+  id="culture-video"
+  controls
+  loop
+  playsinline>
+  <source src="video/tokyo.mp4" type="video/mp4">
+</video>
+</div>
+
+<div id="name-image-container"></div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

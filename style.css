@@ -1,0 +1,679 @@
+body.clear-mode #popup {
+  display: none !important;
+}
+
+body.clear-mode #floating-background {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+* {
+  backdrop-filter: none !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 600;
+  font-size: 15px ;
+}
+
+body {
+  min-height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* BACKGROUND ANIMATION */
+
+#floating-background {
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 1500;
+}
+
+
+.bg-image {
+  position: absolute;
+  opacity: 0;
+  object-fit: contain;
+
+  animation: popImage 4s cubic-bezier(.17,.67,.48,1) forwards;
+
+  border-radius: 24px;
+
+  filter: none;
+
+  will-change: transform, opacity;
+
+  z-index: 1600;
+}
+
+
+@keyframes popImage {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      scale(0.2)
+      rotate(-20deg);
+
+  }
+
+  15% {
+
+    opacity: 2;
+
+    transform:
+      scale(1.15)
+      rotate(6deg);
+
+  }
+
+  30% {
+
+    opacity: 2;
+
+    transform:
+      scale(1)
+      rotate(0deg);
+
+  }
+
+  85% {
+
+    opacity: 2;
+
+    transform:
+      scale(1)
+      rotate(0deg);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      scale(1.25)
+      rotate(8deg);
+
+  }
+}
+
+/* MEMORY GAME */
+
+.memory-game {
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: grid;
+
+  grid-template-columns: repeat(6, 200px);
+
+  gap: 12px;
+
+  perspective: 1000px;
+
+  z-index: 10;
+}
+
+.memory-card {
+
+  width: 200px;
+  height: 210px;
+
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  transition: transform .5s;
+
+  cursor: pointer;
+}
+
+.memory-card:active {
+
+  transform: scale(0.97);
+
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* START SCREEN + WIN SCREEN */
+
+#start-screen,
+#win-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  background: white;
+
+  z-index: 1000;
+}
+
+#start-screen h1,
+#win-screen h2 {
+
+  margin-bottom: 20px;
+
+  font-size: 3rem;
+
+}
+
+#start-btn {
+
+  padding: 15px 30px;
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  border-radius: 12px;
+
+  border-color: black;
+
+   background: rgb(255, 255, 255);
+}
+
+#win-screen img {
+
+  width: 600px;
+
+  margin-bottom: 20px;
+}
+
+/* POPUP */
+
+#popup {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 5000;
+}
+
+#popup-overlay {
+  z-index: 5000;
+}
+
+.popup-box {
+  position: relative;
+  z-index: 5001;
+}
+
+#floating-background {
+  z-index: 2500;
+}
+
+.bg-image {
+  z-index: 2600;
+}
+
+.intro-image {
+  z-index: 2600;
+}
+
+.popup-box {
+
+  width: 400px;
+
+  padding: 30px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  border: 3px solid black;
+
+  text-align: center;
+
+  position: relative;
+
+  z-index: 3000;
+}
+
+#popup-text {
+  white-space: pre-line;
+}
+
+#popup-text {
+
+  font-size: 18px;
+
+  margin-bottom: 20px;
+
+  line-height: 1.5;
+}
+
+
+#popup-btn {
+
+  padding: 12px 24px;
+
+  border-radius: 12px;
+
+  border-color: black;
+
+  background: rgb(255, 255, 255);
+
+  color: rgb(0, 0, 0);
+
+  cursor: pointer;
+
+  font-size: 1rem;
+}
+
+#popup-btn,
+#play-music-btn {
+  text-transform: uppercase;
+}
+
+button {
+  border: 2px solid black;
+}
+
+#intro-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2500;
+}
+
+.intro-image {
+  position: absolute;
+  opacity: 1;
+  object-fit: contain;
+
+  animation: popBurst 4s cubic-bezier(.2, .9, .2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes popBurst {
+
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-30deg);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1.4) rotate(10deg);
+  }
+
+  45% {
+    transform: scale(0.95) rotate(-5deg);
+  }
+
+  70% {
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.25) rotate(8deg);
+  }
+}
+
+.usn-logo-animation {
+
+  width: 500px;
+
+  animation: usnAppear 1.2s ease forwards;
+}
+
+@keyframes usnAppear {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+#name-image-container {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#name-image-container img {
+  width: 240px;
+  max-width: 60vw;
+  height: auto;
+  display: block;
+  animation: popName 0.8s cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+@keyframes popName {
+  0% {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+#popup-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#play-music-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
+}
+
+.flying-illustration {
+
+  position: fixed;
+
+  top: 80px;
+
+  left: -400px;
+
+  width: 300px;
+
+  z-index: 5000;
+
+  pointer-events: none;
+
+  animation: flyAcross 4s linear forwards;
+}
+
+@keyframes flyAcross {
+
+  from {
+    left: -400px;
+  }
+
+  to {
+    left: calc(100vw + 400px);
+  }
+
+}
+
+.creative-quest-image {
+
+  position: absolute;
+
+  object-fit: contain;
+
+  animation: creativeQuestAppear 1s ease forwards;
+
+  z-index: 2600;
+}
+
+@keyframes creativeQuestAppear {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+#gameboy-container {
+
+  position: fixed;
+
+  left: 50%;
+
+  bottom: -300px;
+
+  transform:
+    translateX(-50%)
+    scale(0.85);
+
+  z-index: 2000;
+
+  pointer-events: none;
+
+  transition:
+    bottom .8s ease,
+    opacity .8s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.gameboy {
+
+  position: relative;
+
+  width: 420px;
+  height: 650px;
+
+  background: #4f50db;
+
+  border-radius: 25px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,.3);
+}
+
+.gameboy-screen {
+
+  width: 100%;
+
+  height: 260px;
+
+  background: #222;
+
+  border-radius: 10px;
+
+  padding: 15px;
+}
+
+.gameboy-screen video {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 5px;
+}
+
+.gameboy-screen {
+
+  overflow: hidden;
+}
+
+.dpad {
+
+  position: absolute;
+
+  left: 40px;
+  bottom: 70px;
+
+  width: 80px;
+  height: 80px;
+}
+
+.dpad .vertical {
+
+  position: absolute;
+
+  left: 30px;
+
+  width: 20px;
+  height: 80px;
+
+  background: #222;
+}
+
+
+
+.dpad .horizontal {
+
+  position: absolute;
+
+  top: 30px;
+
+  width: 80px;
+  height: 20px;
+
+  background: #222;
+}
+
+.btn-a,
+.btn-b {
+
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: #b2005b;
+}
+
+.btn-a {
+
+  right: 55px;
+  bottom: 80px;
+}
+
+.btn-b {
+
+  right: 120px;
+  bottom: 120px;
+}
+
+.start-btn,
+.select-btn {
+
+  position: absolute;
+
+  width: 60px;
+  height: 12px;
+
+  border-radius: 20px;
+
+  background: #666;
+
+  bottom: 55px;
+}
+
+.select-btn {
+  left: 110px;
+}
+
+.start-btn {
+  left: 190px;
+}
+
+.popup-link {
+
+  color: #666;
+
+  font-size: 18px;
+
+  text-decoration: none;
+
+  transition: color .2s ease;
+}
+
+#culture-video-container {
+
+  position: fixed;
+
+  left: 50%;
+  top: 70%;
+
+  transform: translateX(-50%);
+
+  z-index: 99999 !important;
+}
+
+#culture-video {
+
+  width: 350px;
+
+  border-radius: none;
+
+  border: none;
+
+  box-shadow: none;
+}
